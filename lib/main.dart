@@ -20,6 +20,7 @@ class FriendsApp extends StatelessWidget {
             MyFriend('Maria'),
             MyFriend('Gabriel'),
             MyFriend('Anderson'),
+            ItemCounter('teste'),
           ],
         )),
       ),
@@ -40,5 +41,30 @@ class MyFriend extends StatelessWidget {
         child: Text(text, style: TextStyle(fontSize: 50)),
       ),
     );
+  }
+}
+
+class ItemCounter extends StatefulWidget {
+  final String name;
+  ItemCounter(this.name);
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
+}
+
+class _ItemCounterState extends State<ItemCounter> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    //return Text('${Widget.name}: $count', style: TextStyle(fontSize: 50));
+    return GestureDetector(
+        onTap: () {
+          count++;
+        },
+        child: Text('$count', style: TextStyle(fontSize: 50)));
   }
 }
